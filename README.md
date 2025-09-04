@@ -4,9 +4,9 @@ A customizable scrollable time picker widget for Flutter with intuitive scroll w
 
 # Screenshots
 <p>
-  <img src="lib/screenshots/demo1.png" alt="Image 1" width="30%"/>
-  <img src="lib/screenshots/demo2.png" alt="Image 2" width="30%"/>
-  <img src="lib/screenshots/demo3.png" alt="Image 3" width="30%"/>
+  <img src="screenshots/demo1.png" alt="Image 1" width="30%"/>
+  <img src="screenshots/demo2.png" alt="Image 2" width="30%"/>
+  <img src="screenshots/demo3.png" alt="Image 3" width="30%"/>
 </p>
 
 
