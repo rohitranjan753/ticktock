@@ -1,6 +1,6 @@
 name: ticktock
 description: "A customizable clock picker widget for Flutter with scroll bar time selection."
-version: 0.0.3
+version: 0.0.4
 homepage: https://github.com/rohitranjan753/ticktock
 
 environment:
