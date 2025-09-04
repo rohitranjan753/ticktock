@@ -2,6 +2,12 @@
 
 A customizable scrollable time picker widget for Flutter with intuitive scroll wheel interface for precise time selection.
 
+# Screenshots
+![Demo 1](lib/screenshots/demo1.png)
+![Demo 2](lib/screenshots/demo2.png)
+![Demo 3](lib/screenshots/demo3.png)
+
+
 ## Features
 
 - 🎨 **Highly Customizable**: Extensive styling options for colors, fonts, and appearance
