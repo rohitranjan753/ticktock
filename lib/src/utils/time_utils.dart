@@ -23,13 +23,17 @@ class TimeUtils {
   }
 
   /// Calculate the hour value from scroll index and period
-  static int calculateHourFromIndex(int index, bool isAm, bool use24HourFormat) {
+  static int calculateHourFromIndex(
+    int index,
+    bool isAm,
+    bool use24HourFormat,
+  ) {
     if (use24HourFormat) {
       return index;
     } else {
       // Convert 12-hour picker index (0-11) to actual hour
       final displayHour = index + 1; // 1-12
-      
+
       if (isAm) {
         // AM: 12 becomes 0, 1-11 stay the same
         return displayHour == 12 ? 0 : displayHour;
@@ -43,7 +47,7 @@ class TimeUtils {
   /// Calculate new hour when period (AM/PM) changes
   static int calculateHourOnPeriodChange(TimeOfDay currentTime, bool isAm) {
     final currentHour = currentTime.hour;
-    
+
     if (isAm) {
       // Switching to AM: if hour is 12-23, subtract 12
       return currentHour >= 12 ? currentHour - 12 : currentHour;
@@ -54,7 +58,11 @@ class TimeUtils {
   }
 
   /// Calculate initial scroll positions with infinite scroll support
-  static int calculateInitialScrollIndex(int baseIndex, int itemCount, bool infiniteScroll) {
+  static int calculateInitialScrollIndex(
+    int baseIndex,
+    int itemCount,
+    bool infiniteScroll,
+  ) {
     return infiniteScroll ? (itemCount * 500) + baseIndex : baseIndex;
   }
 }

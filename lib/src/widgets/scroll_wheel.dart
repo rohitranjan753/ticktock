@@ -37,7 +37,8 @@ class ScrollWheel extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 8.0),
           child: Text(
             label,
-            style: labelStyle ??
+            style:
+                labelStyle ??
                 style.hourTextStyle.copyWith(
                   fontSize: 12,
                   color: style.hourTextStyle.color?.withAlpha(150),
@@ -61,7 +62,7 @@ class ScrollWheel extends StatelessWidget {
               childCount: infiniteItemCount,
               builder: (context, index) {
                 final actualIndex = isInfinite ? index % itemCount : index;
-                
+
                 return Center(
                   child: AnimatedBuilder(
                     animation: controller,

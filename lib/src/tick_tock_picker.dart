@@ -5,10 +5,10 @@ import 'package:ticktock/src/widgets/action_buttons.dart';
 import 'package:ticktock/src/utils/time_utils.dart';
 
 /// A customizable scrollable time picker widget with separate columns for hours, minutes, and AM/PM
-/// 
+///
 /// The [TickTock] widget provides an intuitive scrolling interface for time selection,
 /// with support for both 12-hour and 24-hour formats, custom styling, and infinite scrolling.
-/// 
+///
 /// Example usage:
 /// ```dart
 /// TickTock(
@@ -89,27 +89,36 @@ class _TickTockState extends State<TickTock> {
 
   /// Initialize scroll controllers with correct initial positions
   void _initializeControllers() {
-    final hourIndex = TimeUtils.calculateInitialHourIndex(_selectedTime, widget.style.use24HourFormat);
+    final hourIndex = TimeUtils.calculateInitialHourIndex(
+      _selectedTime,
+      widget.style.use24HourFormat,
+    );
     final hourItemCount = widget.style.use24HourFormat ? 24 : 12;
-    
+
     // Calculate initial positions, accounting for infinite scroll
     final hourInitialIndex = TimeUtils.calculateInitialScrollIndex(
-      hourIndex, 
-      hourItemCount, 
+      hourIndex,
+      hourItemCount,
       widget.style.infiniteScroll,
     );
 
     final minuteInitialIndex = TimeUtils.calculateInitialScrollIndex(
-      _selectedTime.minute, 
-      60, 
+      _selectedTime.minute,
+      60,
       widget.style.infiniteScroll,
     );
 
     final periodInitialIndex = _isAm ? 0 : 1;
 
-    _hourController = FixedExtentScrollController(initialItem: hourInitialIndex);
-    _minuteController = FixedExtentScrollController(initialItem: minuteInitialIndex);
-    _periodController = FixedExtentScrollController(initialItem: periodInitialIndex);
+    _hourController = FixedExtentScrollController(
+      initialItem: hourInitialIndex,
+    );
+    _minuteController = FixedExtentScrollController(
+      initialItem: minuteInitialIndex,
+    );
+    _periodController = FixedExtentScrollController(
+      initialItem: periodInitialIndex,
+    );
   }
 
   @override
@@ -170,10 +179,10 @@ class _TickTockState extends State<TickTock> {
             height: widget.height,
           ),
         ),
-        
+
         // Visual separator
         PickerSeparator(style: widget.style, height: widget.height),
-        
+
         // Minute picker column
         Expanded(
           child: MinutePicker(
@@ -183,7 +192,7 @@ class _TickTockState extends State<TickTock> {
             height: widget.height,
           ),
         ),
-        
+
         // AM/PM picker column (conditional)
         if (_shouldShowPeriodPicker()) ...[
           PickerSeparator(style: widget.style, height: widget.height),
@@ -208,7 +217,11 @@ class _TickTockState extends State<TickTock> {
 
   /// Handle changes to the hour selection
   void _onHourChanged(int index) {
-    final newHour = TimeUtils.calculateHourFromIndex(index, _isAm, widget.style.use24HourFormat);
+    final newHour = TimeUtils.calculateHourFromIndex(
+      index,
+      _isAm,
+      widget.style.use24HourFormat,
+    );
 
     setState(() {
       _selectedTime = _selectedTime.replacing(hour: newHour);
@@ -230,7 +243,10 @@ class _TickTockState extends State<TickTock> {
   void _onPeriodChanged(int index) {
     setState(() {
       _isAm = index == 0;
-      final newHour = TimeUtils.calculateHourOnPeriodChange(_selectedTime, _isAm);
+      final newHour = TimeUtils.calculateHourOnPeriodChange(
+        _selectedTime,
+        _isAm,
+      );
       _selectedTime = _selectedTime.replacing(hour: newHour);
     });
 

@@ -23,7 +23,8 @@ class HourPicker extends StatelessWidget {
     return ScrollWheel(
       controller: controller,
       itemCount: style.use24HourFormat ? 24 : 12,
-      itemBuilder: (index) => TimeUtils.buildHourLabel(index, style.use24HourFormat),
+      itemBuilder: (index) =>
+          TimeUtils.buildHourLabel(index, style.use24HourFormat),
       onSelectedItemChanged: onSelectedItemChanged,
       label: style.hourLabelText,
       labelStyle: style.hourLabelTextStyle,

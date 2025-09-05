@@ -32,10 +32,7 @@ class ActionButtons extends StatelessWidget {
   Widget _buildCancelButton() {
     return TextButton(
       onPressed: () => onTimeCancelled?.call(selectedTime),
-      child: Text(
-        style.cancelButtonText,
-        style: style.cancelButtonTextStyle,
-      ),
+      child: Text(style.cancelButtonText, style: style.cancelButtonTextStyle),
     );
   }
 
@@ -43,10 +40,7 @@ class ActionButtons extends StatelessWidget {
   Widget _buildDoneButton() {
     return TextButton(
       onPressed: () => onTimeSelected?.call(selectedTime),
-      child: Text(
-        style.doneButtonText,
-        style: style.doneButtonTextStyle,
-      ),
+      child: Text(style.doneButtonText, style: style.doneButtonTextStyle),
     );
   }
 }
@@ -56,11 +50,7 @@ class PickerSeparator extends StatelessWidget {
   final TicktockStyle style;
   final double height;
 
-  const PickerSeparator({
-    super.key,
-    required this.style,
-    required this.height,
-  });
+  const PickerSeparator({super.key, required this.style, required this.height});
 
   @override
   Widget build(BuildContext context) {
